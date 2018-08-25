@@ -580,4 +580,17 @@ class Client
 
         return $this->request('createIntegratedAddress', $params);
     }
+
+    /**
+     * Retrieves the address, and fee for the node that the turtle-service instance is connected to.
+     * This may be null, for example if you are using your own local node. This fee will be sent to
+     * the owners address on each sendTransaction() and sendDelayedTransaction() request automatically.
+     * Note that it does not apply to sendFusionTransaction().
+     *
+     * @return ResponseInterface
+     */
+    public function getinfo():ResponseInterface
+    {
+        return $this->request('getinfo', []);
+    }
 }
